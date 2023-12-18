@@ -18,6 +18,7 @@ refs.btnDestroy.addEventListener("click", destroyBoxes);
 /****** boxes ******/
 
 function createBoxes(amount) {
+  destroyBoxes();
   let sizeBox = 30;
   let markups = "";
   for (let i = 0; i < amount; i++) {
@@ -28,11 +29,11 @@ function createBoxes(amount) {
   refs.boxes.insertAdjacentHTML("beforeend", markups);
 }
 
-function handlerClick(evt) {
+function handlerClick() {
   createBoxes(refs.input.value);
 }
 
-function destroyBoxes(evt) {
+function destroyBoxes() {
   refs.boxes.innerHTML = "";
   refs.input.value = "";
 }
