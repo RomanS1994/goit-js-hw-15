@@ -13,26 +13,26 @@ const refs = {
 };
 
 refs.btnCreate.addEventListener("click", handlerClick);
-refs.btnDestroy.addEventListener("click", handlerClickRemove);
+refs.btnDestroy.addEventListener("click", destroyBoxes);
 
 /****** boxes ******/
 
 function createBoxes(amount) {
   let sizeBox = 30;
-
+  let markups = "";
   for (let i = 0; i < amount; i++) {
     sizeBox = sizeBox + 10;
-    const markup = `<div style="width: ${sizeBox}px; height: ${sizeBox}px; background-color: ${getRandomHexColor()};"></div>
+    markups += `<div style="width: ${sizeBox}px; height: ${sizeBox}px; background-color: ${getRandomHexColor()};"></div>
     `;
-    refs.boxes.insertAdjacentHTML("beforeend", markup);
   }
+  refs.boxes.insertAdjacentHTML("beforeend", markups);
 }
 
 function handlerClick(evt) {
   createBoxes(refs.input.value);
 }
 
-function handlerClickRemove(evt) {
+function destroyBoxes(evt) {
   refs.boxes.innerHTML = "";
   refs.input.value = "";
 }
